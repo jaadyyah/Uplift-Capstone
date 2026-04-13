@@ -91,7 +91,7 @@ nav.sitenavigation a:hover {
 }
 
 nav.sitenavigation a:active {
-    background-color: yellow
+    background-color: yellow;
     position: relative;
     top: 1px;
     left: 1px;
