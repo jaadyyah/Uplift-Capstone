@@ -5,48 +5,42 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="styles/contact_styles.css">
         <link rel="stylesheet" href="styles/generic_styles.css">
-        <link rel="shortcut icon" href="  ">
+        <!-- <link rel="shortcut icon" href="  ">
         <link rel="apple-touch-icon" href="  ">
-        <link rel="icon" sizes="192x192" href="  ">
+        <link rel="icon" sizes="192x192" href="  "> -->
         <title> Uplift </title>
     </head>
-    <styles>
-
-    </styles>
     <body>
         <header>
-            <img src=" " class="logo">
+            <!-- <img src=" " class="logo"> -->
         </header>
         <nav class="sitenavigation">
             <p><a href="index.html">Home</a></p>
             <p><a href="members.html">Members</a></p>
         </nav>
         <main class="content">
-            <article>
-                <form action="/submit-contact" method="post">
-                    <div>
-                        <label for="email">Email address</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="you@example.com"
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label for="comments">Comments</label>
-                        <textarea
-                            id="comments"
-                            name="comments"
-                            rows="5"
-                            placeholder="Write your message here..."
-                            required
-                        ></textarea>
-                    </div>
-                    <button type="submit">Send</button>
-                </form>
-            </article>
+            <form action="/submit-contact" method="post">
+                <div>
+                    <p>Email address</p>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+                </div>
+                <div>
+                    <p>Comments</p>
+                    <textarea
+                        id="comments"
+                        name="comments"
+                        rows="5"
+                        placeholder="Write your message here..."
+                        required></textarea>
+                </div>
+                <button type="submit">Send</button>
+            </form>
         </main>
         <footer>
             <p> </p>
