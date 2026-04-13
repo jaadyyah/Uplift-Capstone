@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact_styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/generic_styles.css') }}">
+        <!-- <link rel="shortcut icon" href="  ">
+        <link rel="apple-touch-icon" href="  ">
+        <link rel="icon" sizes="192x192" href="  "> -->
+        <title> Contact Us </title>
+    </head>
+    <body>
+        <header>
+            <h1> Contact Us </h1> 
+            <!-- <img src=" " class="logo"> -->
+        </header>
+        <nav class="sitenavigation">
+            <p><a href="/">Home</a></p>
+            <p><a href="/members">Members</a></p>
+        </nav>
+        <main class="content">
+            <form action="/contact" method="POST">
+                <div>
+                    <p>Name</p>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="youremail@email.com"
+                        required
+                    >
+                </div>
+                <div>
+                    <p>Comments</p>
+                    <textarea
+                        id="comments"
+                        name="comments"
+                        rows="5"
+                        placeholder="Write your message here..."
+                        required></textarea>
+                </div>
+                <button>Send</button>
+            </form>
+        </main>
+        <footer>
+            <p> </p>
+        </footer>
+    </body>
+</html>
