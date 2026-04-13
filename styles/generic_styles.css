@@ -28,7 +28,7 @@ p {
 
 /* header container */
 header {
-    background-color: #FFFF;
+    background-color: #778ef7;
     text-align: center;
     padding: 1em 0;
 }
@@ -47,7 +47,7 @@ body {
     font-family: Lato, Arial, Helvetica, sans-serif;
     background-attachment: fixed;
     background-color: white;
-    min-height: 100vh
+    min-height: 100vh;
 }
 
 .content {
@@ -66,6 +66,10 @@ nav.sitenavigation {
     text-align: center;
 }
 
+nav.sitenavigation a {
+    padding: 0.1em 0.1em;
+}
+
 nav.sitenavigation p {
     display: inline-block;
     margin: 0.4em 0.6em;
@@ -73,7 +77,7 @@ nav.sitenavigation p {
 }
 
 nav.sitenavigation a:link {
-    color: black;
+    color: rgb(235, 231, 231);
     text-decoration: none;
 }
 
@@ -81,17 +85,13 @@ nav.sitenavigation a:visited {
     color: gray;
 }
 
-nav.sitenavigation a:focus {
-    color: white;
-}
-
 nav.sitenavigation a:hover {
     color: white;
-    text-shadow: 1px -1px 0 black;
+    text-shadow: 1px 1px 0 black;
+    background-color: rgb(99, 155, 228);
 }
 
 nav.sitenavigation a:active {
-    background-color: yellow;
     position: relative;
     top: 1px;
     left: 1px;
