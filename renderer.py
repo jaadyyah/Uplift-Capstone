@@ -1,55 +1,38 @@
-import chilkat, os, dotenv
+import chilkat, os, dotenv, email_auto
 
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
+app.run(host="0.0.0.0", port=5000)
 dotenv.load_dotenv()
 apppass = os.environ.get("GMAIL_APP_PASS")
 if (not apppass):
     raise RuntimeError("API key not found, check environment!")
 
-@app.route("/")
-def home():
-    return render_template("index.html")
 
-@app.route("/contact_us")
+# @app.route(path) sets up a URL path that HTML can use for links/redirects within our site.
+@app.route("/") # The path "/" in HTML code redirects to index.html, but the URL will show "/"
+def home():
+    return render_template("index.html") # Sets which HTML file is linked to via a function which returns the page. Same for all of the routes.
+
+@app.route("/contact_us") # The path "/contact_us" in HTML code redirects to contact_us.html, but the URL will show "/contact_us"
 def contact_us():
     return render_template("contact_us.html")
 
-@app.route("/members")
+@app.route("/members") # The path "/members" in HTML code redirects to members.html, but the URL will show "/members"
 def members():
     return render_template("members.html")
 
-@app.route("/contact", methods=["POST"])
-def send_email():
+@app.route("/contact", methods=["POST"])        # The path "/contact" in HTML code does *NOT* redirect to an HTML page we wrote, 
+def email_form():                               # but the URL will show "/contact".
     user_email = request.form.get("email", "")
     body = request.form.get("comments", "")
     if not user_email or not body:
         return "Invalid input for form submission."
+    try:
+        email_auto.send_email
+    except:
+        return "Form not implemented."
+    return render_template("index.html") # After filling out the form, the return value generates an html page.
 
-    mailman = chilkat.CkMailMan()
-    mailman.put_SmtpHost("smtp.gmail.com")
-    mailman.put_SmtpPort(587)
-    mailman.put_StartTLS(True)
-    mailman.put_SmtpUsername("upliftcompany13@gmail.com")
-    
-    mailman.put_SmtpPassword(apppass)
-    internal_email = chilkat.CkEmail()
-    internal_email.put_Subject("Automated Contact Submission From " + user_email)
-    internal_email.put_Body(body)
-    internal_email.put_From("Uplift Contact Submission")
-    internal_email.put_ReplyTo("")
-    internal_email.AddTo("Uplift Contact", "upliftcompany13@gmail.com")
-    
-    thanks_email = chilkat.CkEmail()
-    thanks_email.put_Subject("Thanks For Your Submission!")
-    thanks_email.put_Body("We are glad that you have taken the time to get in touch with us. Your input is appreciated!")
-    thanks_email.put_From("Uplift Inc.")
-    thanks_email.put_ReplyTo("")
-    thanks_email.AddTo("", user_email)
 
-    success = mailman.SendEmail(internal_email) and mailman.SendEmail(thanks_email)
-    if (success == False):
-        print(mailman.lastErrorText())
-        return "Email failed to send", 500
-    return "Email sent successfully"
