@@ -7,3 +7,23 @@
     text-align: center;
     background-color: white;
 }
+
+.content div {
+    margin: 20px 0;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgb(0,90,139);
+    line-height: 1.6;
+}
+
+.content h3 {
+    margin: 5px 0;
+    padding: 3px;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgb(0,90,139);
+    line-height: 1.6;
+}
