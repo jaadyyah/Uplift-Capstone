@@ -13,9 +13,9 @@ def home():
 def contact_us():
     return render_template("contact_us.html")
 
-@app.route("/members") # The path "/members" in HTML code redirects to members.html, but the URL will show "/members"
-def members():
-    return render_template("members.html")
+@app.route("/about_us") # The path "/about_us" in HTML code redirects to about_us.html, but the URL will show "/about_us"
+def about_us():
+    return render_template("about_us.html")
 
 @app.route("/contact", methods=["POST"])        # The path "/contact" in HTML code does *NOT* redirect to an HTML page we wrote, 
 def email_form():                               # but the URL will show "/contact".
