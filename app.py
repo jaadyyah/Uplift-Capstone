@@ -3,7 +3,6 @@ import os, email_auto
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-app.run(host="0.0.0.0", port=8000)
 
 # @app.route(path) sets up a URL path that HTML can use for links/redirects within our site.
 @app.route("/") # The path "/" in HTML code redirects to index.html, but the URL will show "/"
