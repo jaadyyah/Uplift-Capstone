@@ -17,8 +17,8 @@ def close_db(exception):
 def addToUsers(Email, FName, LName, PhoneNumber):
     db = get_db()
     db.execute("""
-    Insert Into Users (Email, FName, LName, PhoneNumber)
-        Values
+    insert or ignore into Users (Email, FName, LName, PhoneNumber)
+        values
         (?, ?, ?, ?)
     """, (Email, FName, LName, PhoneNumber))
     db.commit()
@@ -26,8 +26,8 @@ def addToUsers(Email, FName, LName, PhoneNumber):
 def addToReplies(Email, Data):
     db = get_db()
     db.execute("""
-    Insert Into Replies (Email, Data)
-        Values
+    insert into Replies (Email, Data)
+        values
         (?, ?)
     """, (Email, Data))
     db.commit()
