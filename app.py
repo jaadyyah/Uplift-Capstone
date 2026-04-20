@@ -1,4 +1,4 @@
-import os, email_auto
+import os
 
 from flask import Flask, render_template, request
 
@@ -24,7 +24,7 @@ def email_form():                               # but the URL will show "/contac
     if not user_email or not body:
         return "Invalid input for form submission."
     try:
-        email_auto.send_email(user_email, body)
+        pass
     except Exception as exception:
         print(exception)
         return "Form not implemented."
