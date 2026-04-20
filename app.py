@@ -24,7 +24,7 @@ def email_form():                               # but the URL will show "/contac
     if not user_email or not body:
         return "Invalid input for form submission."
     try:
-        email_auto.send_email
+        email_auto.send_email(user_email, body)
     except:
         return "Form not implemented."
     return render_template("index.html") # After filling out the form, the return value generates an html page.
