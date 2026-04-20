@@ -1,8 +1,36 @@
-import os
+import os, sqlite3
 
-from flask import Flask, render_template, request
+from flask import Flask, g, render_template, request
 
 app = Flask(__name__)
+
+def get_db():
+    if "db" not in g:
+        g.db = sqlite3.connect("Uplift.db")
+    return g.db
+
+def close_db(exception):
+    db = g.pop("db", None)
+    if db is not None:
+        db.close()
+
+def addToUsers(Email, FName, LName, PhoneNumber):
+    db = get_db()
+    db.execute("""
+    Insert Into Users (Email, FName, LName, PhoneNumber)
+        Values
+        (?, ?, ?, ?)
+    """, (Email, FName, LName, PhoneNumber))
+    db.commit()
+
+def addToReplies(Email, Data):
+    db = get_db()
+    db.execute("""
+    Insert Into Replies (Email, Data)
+        Values
+        (?, ?)
+    """, (Email, Data))
+    db.commit()
 
 # @app.route(path) sets up a URL path that HTML can use for links/redirects within our site.
 @app.route("/") # The path "/" in HTML code redirects to index.html, but the URL will show "/"
@@ -19,12 +47,17 @@ def about_us():
 
 @app.route("/contact", methods=["POST"])        # The path "/contact" in HTML code does *NOT* redirect to an HTML page we wrote, 
 def email_form():                               # but the URL will show "/contact".
+    name = request.form.get("name", "")
+    fname = name.split(" ")[0]
+    lname = name.split(" ")[1]
+    phone = request.form.get("phone", "")
     user_email = request.form.get("email", "")
     body = request.form.get("comments", "")
     if not user_email or not body:
         return "Invalid input for form submission."
     try:
-        pass
+        addToUsers(user_email, fname, lname, phone)
+        addToReplies(user_email, body)
     except Exception as exception:
         print(exception)
         return "Form not implemented."
