@@ -25,7 +25,8 @@ def email_form():                               # but the URL will show "/contac
         return "Invalid input for form submission."
     try:
         email_auto.send_email(user_email, body)
-    except:
+    except Exception as exception:
+        print(exception)
         return "Form not implemented."
     return render_template("index.html") # After filling out the form, the return value generates an html page.
 
