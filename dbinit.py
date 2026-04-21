@@ -6,7 +6,9 @@ create table if not exists Users (
     Email varchar(32) primary key,
     FName varchar(32) not null,
     LName varchar(32) not null,
-    PhoneNumber varchar(20) not null
+    PhoneNumber varchar(20) not null,
+    ValidEmail integer default 1,
+    PermanentlyInvalid integer default 0
 );
 """)
 
