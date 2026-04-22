@@ -7,4 +7,4 @@ if [ -f "/tmp/gunicorn.pid" ]; then
     sleep 1
 fi
 
-gunicorn -w 4 app:app -b 0.0.0.0:8000 --pid /tmp/gunicorn.pid
+gunicorn -w 4 app:app -b 0.0.0.0:8000 --pid /tmp/gunicorn.pid --daemon --access-logfile /tmp/gunicorn.log --error-logfile /tmp/gunicorn.log
