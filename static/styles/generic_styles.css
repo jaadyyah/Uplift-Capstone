@@ -30,8 +30,8 @@ p {
 header {
     background-color: #778ef7;
     text-align: center;
-    padding: 1em 0;
-    color: ghostwhite;
+    padding: 2.5em 0;
+    border-bottom: 3px solid ghostwhite;
 }
 
 header .logo {
@@ -64,11 +64,18 @@ body {
 /* site navigation */
 nav.sitenavigation {
     background-color: rgb(0,90,139);
-    text-align: center;
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+    gap: 2.5em;
 }
 
 nav.sitenavigation a {
-    padding: 0.2em 0.2em;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.4em 0.6em;
+    border-radius: 6px;
+    transition: 0.2s ease;
 }
 
 nav.sitenavigation p {
@@ -108,7 +115,8 @@ h2 {
 
 /* footer section */
 footer {
-    padding: 0.5em;
+    font-size: 0.95rem;
+    padding: 1.2em 0;
     background-color: rgb(0,90,139);
     text-align: center;
 }

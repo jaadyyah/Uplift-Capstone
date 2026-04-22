@@ -21,3 +21,36 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.6em;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-top: 1.4em;
+    margin-bottom: 0.4em;
+}
+
+p {
+    font-size: 1.1rem;
+    text-align: left;
+    margin: 0.8em 0;
+}
+
+ul {
+    margin: 1em 0;
+    padding-left: 1.5em;
+}
+
+li {
+    font-size: 1.05rem;
+    margin-bottom: 0.6em;
+}
+
+a {
+    font-weight: 600;
+    text-decoration: none;
+}
+
