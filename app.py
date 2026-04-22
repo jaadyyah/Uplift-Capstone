@@ -1,5 +1,7 @@
 import os, sqlite3, json, requests
 
+import dbinit # renders the database.
+
 from flask import Flask, g, render_template, request
 
 app = Flask(__name__)
@@ -19,9 +21,13 @@ app.teardown_appcontext(close_db)
 def addToUsers(Email, FName, LName, PhoneNumber):
     db = get_db()
     db.execute("""
-    insert or ignore into Users (Email, FName, LName, PhoneNumber)
+    insert into Users (Email, FName, LName, PhoneNumber)
         values
         (?, ?, ?, ?)
+    on conflict(Email) do update set
+        FName = excluded.FName,
+        LName = excluded.LName,
+        PhoneNumber = excluded.PhoneNumber
     """, (Email, FName, LName, PhoneNumber))
     db.commit()
 
@@ -74,7 +80,7 @@ def email_form():                               # but the URL will show "/contac
         addToReplies(user_email, body)
     except Exception as exception:
         print(exception)
-        return "Form not implemented."
+        return "There was an error loading the form." # Change this later!
     return render_template("index.html") # After filling out the form, the return value generates an html page.
 
 
