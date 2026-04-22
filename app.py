@@ -1,6 +1,6 @@
 import os, sqlite3, json, requests, dbinit
 
-from flask import Flask, g, render_template, request
+from flask import Flask, g, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -80,8 +80,8 @@ def email_form():                               # but the URL will show "/contac
         addToReplies(user_email, body)
     except Exception as exception:
         print(exception)
-        return "There was an error loading the form." # Change this later!
-    return render_template("index.html") # After filling out the form, the return value generates an html page.
+        return "There was an error loading the form." # Change this later and add flask route + redirect for error!
+    return redirect(url_for("home")) # After filling out the form, the return value reroutes to home functions.
 
 
 @app.route("/ses-bounce-events", methods=["POST"])
