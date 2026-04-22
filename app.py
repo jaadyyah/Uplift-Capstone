@@ -1,10 +1,10 @@
-import os, sqlite3, json, requests
-
-from dbinit import init_db # renders the database.
+import os, sqlite3, json, requests, dbinit
 
 from flask import Flask, g, render_template, request
 
 app = Flask(__name__)
+
+dbinit.init_db()
 
 def get_db():
     if "db" not in g:
@@ -127,6 +127,3 @@ def ses_events():
 
                 # : suppress email
     return "OK", 200
-
-if __name__ == "__main__":
-    init_db()
