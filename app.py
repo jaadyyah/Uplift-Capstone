@@ -1,6 +1,6 @@
 import os, sqlite3, json, requests
 
-import dbinit # renders the database.
+from dbinit import init_db # renders the database.
 
 from flask import Flask, g, render_template, request
 
@@ -127,3 +127,6 @@ def ses_events():
 
                 # : suppress email
     return "OK", 200
+
+if __name__ == "__main__":
+    init_db()
