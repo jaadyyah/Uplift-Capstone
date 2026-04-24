@@ -9,6 +9,17 @@ form {
 form div input, form div textarea {
     max-width: 100%;
     width: 90vw;
-    border: 5px groove rgb(143, 190, 229);
-    border-radius: 7px;
+    border: 5px solid rgb(6, 16, 104);
+    border-radius: 10px;
+    padding: 0.4em;
+}
+
+button {
+    margin-top: 1em;
+}
+
+#comments {
+    height: 100px;
+    resize: none;
+    overflow: scroll;
 }

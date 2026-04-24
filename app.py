@@ -44,43 +44,34 @@ def email_form():                               # but the URL will show "/contac
 @app.route("/ses-bounce-events", methods=["POST"])
 def ses_events():
     payload = request.get_json(force=True)
-
-    # 1. SNS subscription confirmation
-    if payload.get("Type") == "SubscriptionConfirmation":
+    if payload.get("Type") == "SubscriptionConfirmation": # SNS subscription confirmation
         subscribe_url = payload.get("SubscribeURL")
         if subscribe_url:
-            requests.get(subscribe_url)  # confirm subscription
+            requests.get(subscribe_url)  # Confirm subscription
         return "confirmed", 200
-
-    # 2. Actual notification
-    if payload.get("Type") == "Notification":
+    if payload.get("Type") == "Notification": # Notification check
         message = json.loads(payload.get("Message", "{}"))
-
         event_type = message.get("notificationType")
-
         if event_type == "Bounce":
             bounce = message.get("bounce", {})
             bounceType = bounce.get("bounceType")
             recipients = bounce.get("bouncedRecipients", [])
             for r in recipients:
                 email = r.get("emailAddress")
-                if not email:
+                if not email: # Skip empty emails.
                     continue
                 print("BOUNCE:", bounceType, email)
-                if (bounceType == "Permanent"):
+                if (bounceType == "Permanent"): # Conditionally suppress bounces if they are permanent bounces or not.
                     uplift_dbutil.setUserEmailAsInvalid(email, 1)
                 else:
                     uplift_dbutil.setUserEmailAsInvalid(email, 0)
-
-        elif event_type == "Complaint":
+        elif event_type == "Complaint": # Always suppress complaints.
             complaint = message.get("complaint", {})
             recipients = complaint.get("complainedRecipients", [])
             for r in recipients:
                 email = r.get("emailAddress")
-                if not email:
+                if not email: # Skip empty emails.
                     continue
                 print("COMPLAINT:", email)
                 uplift_dbutil.setUserEmailAsInvalid(email, 1)
-
-                # : suppress email
     return "OK", 200

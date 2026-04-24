@@ -74,6 +74,7 @@ nav.sitenavigation a {
     font-size: 2rem;
     font-weight: 600;
     padding: 0.4em 0.6em;
+    border: 6px solid rgb(0,90,139);
     border-radius: 6px;
     transition: 0.2s ease;
 }
@@ -90,15 +91,15 @@ nav.sitenavigation a:link {
 }
 
 nav.sitenavigation a:visited {
-    color: gray;
+    color: rgb(235, 231, 231);
 }
 
 nav.sitenavigation a:hover {
     color: white;
     text-shadow: 1px 1px 0 black;
     background-color: rgb(99, 155, 228);
-    border: 0px solid black;
-    border-radius: 7px;
+    border-radius: 6px;
+    border: 6px solid rgb(99, 155, 228);
 }
 
 nav.sitenavigation a:active {
