@@ -18,6 +18,6 @@ def send_email(user_email, subject, body):
             }
         )
         return True
-    except botocore.exceptions as err:
+    except botocore.exceptions.BotoCoreError as err:
         print("Attempted to send email and failed:", err)
         return False
