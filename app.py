@@ -1,4 +1,4 @@
-import os, sqlite3, json, requests, dbinit
+import os, sqlite3, json, requests, dbinit, email_auto
 
 from flask import Flask, g, render_template, request, redirect, url_for
 
@@ -78,6 +78,10 @@ def email_form():                               # but the URL will show "/contac
     try:
         addToUsers(user_email, fname, lname, phone)
         addToReplies(user_email, body)
+        try:
+            email_auto.send_email(user_email, body)
+        except:
+            print("Unable to send email.")
     except Exception as exception:
         print(exception)
         return "There was an error loading the form." # Change this later and add flask route + redirect for error!
