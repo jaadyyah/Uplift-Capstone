@@ -2,7 +2,7 @@ import boto3, botocore
 from email_validator import EmailNotValidError, validate_email
 ses = boto3.client("ses", region_name="us-east-1")
 
-def send_email(user_email, body):
+def send_email(user_email, subject, body):
     try:
         email_to_send = validate_email(user_email, check_deliverability=True)
     except EmailNotValidError as email_err:
@@ -10,10 +10,10 @@ def send_email(user_email, body):
         return False
     try:
         ses.send_email(
-            Source="mail@upliftcompanyusa.com",
+            Source="Uplift Company",
             Destination={"ToAddresses": [email_to_send.email]},
             Message={
-                "Subject": {"Data": "Hello"},
+                "Subject": {"Data": subject},
                 "Body": {"Text": {"Data": body}}
             }
         )

@@ -1,56 +1,12 @@
-import os, sqlite3, json, requests, dbinit, email_auto
+import os, sqlite3, json, requests, uplift_dbutil, uplift_emailutil, botocore
 
-from flask import Flask, g, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-dbinit.init_db()
+uplift_dbutil.init_db()
 
-def get_db():
-    if "db" not in g:
-        g.db = sqlite3.connect("Uplift.db")
-    return g.db
-
-def close_db(exception):
-    db = g.pop("db", None)
-    if db is not None:
-        db.close()
-
-app.teardown_appcontext(close_db)
-
-def addToUsers(Email, FName, LName, PhoneNumber):
-    db = get_db()
-    db.execute("""
-    insert into Users (Email, FName, LName, PhoneNumber)
-        values
-        (?, ?, ?, ?)
-    on conflict(Email) do update set
-        FName = excluded.FName,
-        LName = excluded.LName,
-        PhoneNumber = excluded.PhoneNumber
-    """, (Email, FName, LName, PhoneNumber))
-    db.commit()
-
-def addToReplies(Email, Data):
-    db = get_db()
-    db.execute("""
-    insert into Replies (Email, Data)
-        values
-        (?, ?)
-    """, (Email, Data))
-    db.commit()
-
-def setUserEmailAsInvalid(Email, PermanentlyInvalid):
-    db = get_db()
-    cursor = db.execute("""
-    update Users
-        set ValidEmail = 0, PermanentlyInvalid = ?
-    where email = ?
-    """, (PermanentlyInvalid, Email))
-    if cursor.rowcount <= 0:
-        print(f"No user found for email {Email}")
-    db.commit()
-
+app.teardown_appcontext(uplift_dbutil.close_db)
 
 # @app.route(path) sets up a URL path that HTML can use for links/redirects within our site.
 @app.route("/") # The path "/" in HTML code redirects to index.html, but the URL will show "/"
@@ -76,12 +32,9 @@ def email_form():                               # but the URL will show "/contac
     if not user_email or not body:
         return "Invalid input for form submission."
     try:
-        addToUsers(user_email, fname, lname, phone)
-        addToReplies(user_email, body)
-        try:
-            email_auto.send_email(user_email, body)
-        except:
-            print("Unable to send email.")
+        uplift_dbutil.addToUsers(user_email, fname, lname, phone)
+        uplift_dbutil.addToReplies(user_email, body)
+        uplift_emailutil.send_email(user_email, "Thanks from Uplift", "Thank you for reaching out to us! Your response has been recorded.")
     except Exception as exception:
         print(exception)
         return "There was an error loading the form." # Change this later and add flask route + redirect for error!
@@ -115,9 +68,9 @@ def ses_events():
                     continue
                 print("BOUNCE:", bounceType, email)
                 if (bounceType == "Permanent"):
-                    setUserEmailAsInvalid(email, 1)
+                    uplift_dbutil.setUserEmailAsInvalid(email, 1)
                 else:
-                    setUserEmailAsInvalid(email, 0)
+                    uplift_dbutil.setUserEmailAsInvalid(email, 0)
 
         elif event_type == "Complaint":
             complaint = message.get("complaint", {})
@@ -127,7 +80,7 @@ def ses_events():
                 if not email:
                     continue
                 print("COMPLAINT:", email)
-                setUserEmailAsInvalid(email, 1)
+                uplift_dbutil.setUserEmailAsInvalid(email, 1)
 
                 # : suppress email
     return "OK", 200
