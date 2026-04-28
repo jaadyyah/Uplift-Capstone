@@ -81,6 +81,10 @@ header {
 	background-clip: text;
 }
 
+.svgicon {
+  transform: translateY(4px);
+}
+
 /* Logo image fallback */
 header img.logo {
 	height: 40px;

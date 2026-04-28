@@ -118,6 +118,11 @@ nav a::after {
 nav a:hover { color: var(--white); }
 nav a:hover::after { transform: scaleX(1); }
 
+.svgicon {
+  transform: translateY(4px);
+}
+
+
 /* ── MAIN ── */
 main {
 	position: relative;
