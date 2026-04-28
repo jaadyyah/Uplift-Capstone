@@ -20,4 +20,3 @@ else
 fi
 
 echo ""
-echo "Done! Activate with: source $VENV_DIR/bin/activate"
