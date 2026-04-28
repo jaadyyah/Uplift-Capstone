@@ -91,38 +91,6 @@ header img.logo {
 	object-fit: contain;
 }
 
-nav {
-	display: flex;
-	gap: 2.5rem;
-	align-items: center;
-}
-
-nav a {
-	font-family: 'DM Sans', sans-serif;
-	font-weight: 400;
-	font-size: 0.85rem;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	color: var(--muted);
-	text-decoration: none;
-	position: relative;
-	transition: color 0.3s;
-}
-
-nav a::after {
-	content: '';
-	position: absolute;
-	bottom: -4px; left: 0; right: 0;
-	height: 1px;
-	background: var(--blue-bright);
-	transform: scaleX(0);
-	transform-origin: left;
-	transition: transform 0.3s ease;
-}
-
-nav a:hover { color: var(--white); }
-nav a:hover::after { transform: scaleX(1); }
-
 /* ── HERO ── */
 .hero {
 	position: relative;

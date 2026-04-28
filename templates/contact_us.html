@@ -8,6 +8,7 @@
 <link rel="icon" sizes="192x192" type="image/svg" href="{{ url_for('static', filename='images/UpliftFavIcon.svg') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact_styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/active_nav_styles.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <title>Contact Us — Uplift</title>
 </head>
@@ -32,6 +33,7 @@
   <nav>
     <a href="/">Home</a>
     <a href="/about_us">About Us</a>
+    <a href="/contact_us">Contact Us</a>
   </nav>
 </header>
 
@@ -156,12 +158,19 @@
 </footer>
 
 <script>
-  // Subtle header shadow on scroll
+  // Header scroll shadow
   const header = document.querySelector('header');
   window.addEventListener('scroll', () => {
     header.style.boxShadow = window.scrollY > 10
       ? '0 4px 30px rgba(0,0,0,0.5)'
       : 'none';
+  });
+
+  // Active nav
+  document.querySelectorAll('nav a').forEach(link => {
+    const linkPath = new URL(link.href).pathname.replace(/\/$/, '') || '/';
+    const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+    if (currentPath === linkPath) link.classList.add('nav-active');
   });
 </script>
 </body>

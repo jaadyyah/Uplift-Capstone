@@ -7,6 +7,7 @@
 <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/UpliftFavIcon.svg') }}">
 <link rel="icon" sizes="192x192" href="{{ url_for('static', filename='images/UpliftFavIcon.svg') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/index_styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/active_nav_styles.css') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <title>Uplift</title>
@@ -29,6 +30,7 @@
     </svg>
     Uplift</div>
   <nav>
+    <a href="/">Home</a>
     <a href="/about_us">About Us</a>
     <a href="/contact_us">Contact Us</a>
   </nav>
@@ -170,6 +172,13 @@
     header.style.boxShadow = window.scrollY > 20
       ? '0 4px 30px rgba(0,0,0,0.5)'
       : 'none';
+  });
+</script>
+<script>
+  document.querySelectorAll('nav a').forEach(link => {
+    const linkPath = new URL(link.href).pathname.replace(/\/$/, '') || '/';
+    const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+    if (currentPath === linkPath) link.classList.add('nav-active');
   });
 </script>
 </body>
