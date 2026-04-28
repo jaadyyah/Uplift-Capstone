@@ -1,63 +1,788 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/index_styles.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/generic_styles.css') }}">
-        <link rel="shortcut icon" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
-        <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
-        <link rel="icon" sizes="192x192" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
-        <title> Uplift </title>
-    </head>
-    <body>
-        <header>
-            <img src="{{ url_for('static', filename='images/UpliftHeader.png') }}" class="logo">
-        </header>
-        <nav class="sitenavigation">
-            <p><a href="/about_us">About Us</a></p>
-            <p><a href="/contact_us">Contact Us</a></p>
-        </nav>
-        <main class="content">
-                <div>
-                <h2>Empowering Small Businesses through Technology</h2>
-                <p>
-                    We provide essential digital infrastructure for home-based shops and emerging small businesses. 
-                    By streamlining the technical side of commerce, we help you focus on what you do best.
-                </p>
-                
-                <h3>Our Core Services</h3>
-                <ul>
-                    <li>
-                    <strong>Marketing & Branding:</strong> Custom websites, social media management, and graphic design (posters, flyers, and events) tailored to your unique vision.
-                    </li>
-                    <li>
-                    <strong>Infrastructure & Management:</strong> End-to-end support for payments, inventory, and shipping labels, powered by reliable platforms like BigCartel.
-                    </li>
-                </ul>
-                
-                <p><em>Our goal is simple: drive more shoppers to your door and make every sale effortless.</em></p>
-            </div>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
+<link rel="icon" sizes="192x192" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>Uplift</title>
+<style>
+  :root {
+    --black: #050810;
+    --deep: #090d1a;
+    --blue-dark: #0a1628;
+    --blue-mid: #0f3460;
+    --blue: #1565c0;
+    --blue-bright: #2979ff;
+    --blue-glow: #4fc3f7;
+    --white: #f0f4ff;
+    --muted: #8899bb;
+    --border: rgba(41, 121, 255, 0.18);
+    --glow: 0 0 40px rgba(41, 121, 255, 0.25);
+  }
 
-            <div>
-                <h2>Featured Success Story: LittleOneShop</h2>
-                <h3>The Challenge:</h3> 
-                <p>LittleOneShop began in 2020 as a home-based fragrance boutique.
-                 Despite a high-quality product, the business relied on trust-based, manual transactions and word-of-mouth marketing.
-                  This led to significant inventory overhead, unfulfilled verbal commitments, and missed revenue opportunities.
-                </p>
-                <h3>The Uplift Solution:</h3>
-                <p>Uplift implemented a dual-phase infrastructure overhaul to professionalize the brand:</p>
-                    <ul>
-                        <li><strong>Digital Identity:</strong> Developed a boutique-style storefront and social media presence to reflect the luxury nature of the products.</li>
-                        <li><strong>Operational Streamlining:</strong> Integrated BigCartel and PayPal to automate payments and shipping label generation, removing the burden of manual logistics.</li>
-                    </ul>
-                <a href="https://littleoneshop03s-shop.bigcartel.com/">View LittleOneShop's Website&rarr;</a>
-            </div>
-            
-        </main>
-        <footer>
-            <p>  </p>
-        </footer>
-    </body>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── GRID BG ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(41,121,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,121,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(5, 8, 16, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    animation: slideDown 0.8s ease both;
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+  }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--white) 0%, var(--blue-glow) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Logo image fallback */
+  header img.logo {
+    height: 40px;
+    object-fit: contain;
+  }
+
+  nav {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  nav a {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 1px;
+    background: var(--blue-bright);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  nav a:hover { color: var(--white); }
+  nav a:hover::after { transform: scaleX(1); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 8rem 4rem 6rem;
+    overflow: hidden;
+  }
+
+  /* Glowing orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(21,101,192,0.35) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    animation-delay: 0s;
+  }
+
+  .orb-2 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(41,121,255,0.2) 0%, transparent 70%);
+    bottom: 50px; left: 10%;
+    animation-delay: -3s;
+  }
+
+  .orb-3 {
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(79,195,247,0.15) 0%, transparent 70%);
+    top: 40%; right: 20%;
+    animation-delay: -5s;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1) translateY(0); opacity: 0.8; }
+    50%       { transform: scale(1.1) translateY(-20px); opacity: 1; }
+  }
+
+  .hero-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--blue-bright);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s ease both;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: var(--blue-bright);
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 800px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s ease both;
+  }
+
+  .hero h1 .gradient-text {
+    background: linear-gradient(135deg, var(--blue-bright) 0%, var(--blue-glow) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    max-width: 540px;
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-top: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.7s ease both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.9s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2rem;
+    background: var(--blue-bright);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(41,121,255,0.45); }
+  .btn-primary:hover::before { opacity: 1; }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2rem;
+    background: transparent;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.3s, color 0.3s;
+  }
+
+  .btn-outline:hover { border-color: var(--blue-bright); color: var(--blue-bright); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0;
+    animation: fadeUp 1s 1.2s ease both;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--muted);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--blue-bright);
+    transform: translateX(-100%);
+    animation: scrollAnim 2s 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollAnim {
+    0%   { transform: translateX(-100%); }
+    50%  { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* ── SERVICES ── */
+  .section {
+    position: relative;
+    z-index: 1;
+    padding: 7rem 4rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--blue-bright);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--blue-bright);
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    max-width: 600px;
+    margin-bottom: 4rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .service-card {
+    background: var(--deep);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue) 0%, var(--blue-glow) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .service-card:hover { background: var(--blue-dark); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .service-card:hover .service-icon {
+    border-color: var(--blue-bright);
+    box-shadow: var(--glow);
+  }
+
+  .service-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── CASE STUDY ── */
+  .case-study {
+    position: relative;
+    z-index: 1;
+    padding: 7rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .case-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(41,121,255,0.12);
+    border: 1px solid rgba(41,121,255,0.3);
+    color: var(--blue-bright);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-study .section-title { margin-bottom: 1.5rem; }
+
+  .case-description {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .case-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--blue-bright);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(41,121,255,0.3);
+    padding-bottom: 2px;
+    transition: gap 0.3s, border-color 0.3s;
+  }
+
+  .case-link:hover { gap: 1rem; border-color: var(--blue-bright); }
+
+  .case-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .case-block {
+    border-left: 2px solid var(--border);
+    padding-left: 1.5rem;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .case-block:hover { border-color: var(--blue-bright); }
+
+  .case-block::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--blue-mid);
+    border: 2px solid var(--blue-bright);
+    transition: box-shadow 0.3s;
+  }
+
+  .case-block:hover::before { box-shadow: 0 0 10px var(--blue-bright); }
+
+  .case-block h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-glow);
+    margin-bottom: 0.5rem;
+  }
+
+  .case-block p {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .case-block ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .case-block ul li {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding: 0.2rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .case-block ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--blue-bright);
+    font-size: 0.8rem;
+  }
+
+  /* ── STATS ── */
+  .stats-bar {
+    position: relative;
+    z-index: 1;
+    background: var(--blue-dark);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .stat-item { padding: 0.5rem; }
+
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--white), var(--blue-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── REVEAL ANIMATION ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    header { padding: 1.2rem 2rem; }
+    .hero { padding: 8rem 2rem 5rem; }
+    .section { padding: 5rem 2rem; }
+    .section-divider { margin: 0 2rem; }
+    .case-study { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+    .stats-bar { grid-template-columns: 1fr; padding: 3rem 2rem; }
+    footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-text">Uplift</div>
+  <nav>
+    <a href="/about_us">About Us</a>
+    <a href="/contact_us">Contact Us</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <p class="hero-label">Digital Infrastructure for Small Business</p>
+
+  <h1>
+    Empowering Small<br>
+    Businesses Through<br>
+    <span class="gradient-text">Technology</span>
+  </h1>
+
+  <p class="hero-sub">
+    We provide essential digital infrastructure for home-based shops and emerging
+    small businesses — so you can focus on what you do best.
+  </p>
+
+  <div class="hero-cta">
+    <a href="/contact_us" class="btn-primary">Get Started ↗</a>
+    <a href="#services" class="btn-outline">Our Services</a>
+  </div>
+
+  <div class="scroll-indicator">
+    <span class="scroll-line"></span>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar reveal">
+  <div class="stat-item">
+    <div class="stat-number">100%</div>
+    <div class="stat-label">Client Retention</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">2x</div>
+    <div class="stat-label">Average Revenue Growth</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">End‑to‑End</div>
+    <div class="stat-label">Digital Transformation</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <p class="section-label reveal">What We Do</p>
+  <h2 class="section-title reveal">Our Core Services</h2>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">✦</div>
+      <h3>Marketing & Branding</h3>
+      <p>Custom websites, social media management, and graphic design — posters, flyers, and event materials — tailored to your unique vision and audience.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">⬡</div>
+      <h3>Infrastructure & Management</h3>
+      <p>End-to-end support for payments, inventory, and shipping labels, powered by reliable platforms like BigCartel so every transaction runs flawlessly.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">◈</div>
+      <h3>Digital Identity</h3>
+      <p>Boutique-style storefronts and cohesive social media presences that reflect the quality and character of your brand at every touchpoint.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CASE STUDY -->
+<section class="case-study">
+  <div>
+    <span class="case-tag reveal">Success Story</span>
+    <h2 class="section-title reveal">LittleOneShop</h2>
+    <p class="case-description reveal">
+      A home-based fragrance boutique transformed from manual, trust-based transactions 
+      into a fully automated, professional storefront — all through a strategic 
+      dual-phase infrastructure overhaul.
+    </p>
+    <a href="https://littleoneshop03s-shop.bigcartel.com/" class="case-link reveal" target="_blank">
+      View LittleOneShop's Website ↗
+    </a>
+  </div>
+
+  <div class="case-details">
+    <div class="case-block reveal">
+      <h4>The Challenge</h4>
+      <p>Founded in 2020, LittleOneShop relied on verbal commitments and word-of-mouth marketing, resulting in inventory overhead, unfulfilled orders, and missed revenue opportunities.</p>
+    </div>
+
+    <div class="case-block reveal">
+      <h4>Digital Identity</h4>
+      <ul>
+        <li>Boutique-style storefront reflecting the luxury nature of the products</li>
+        <li>Cohesive social media presence built to convert browsers to buyers</li>
+      </ul>
+    </div>
+
+    <div class="case-block reveal">
+      <h4>Operational Streamlining</h4>
+      <ul>
+        <li>BigCartel & PayPal integrated for automated payments</li>
+        <li>Shipping label generation removing manual logistics burden</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Uplift</div>
+  <p class="footer-copy">© 2025 Uplift. All rights reserved.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Header scroll shadow
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.style.boxShadow = window.scrollY > 20
+      ? '0 4px 30px rgba(0,0,0,0.5)'
+      : 'none';
+  });
+</script>
+</body>
 </html>

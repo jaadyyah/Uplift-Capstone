@@ -1,64 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/about_us_styles.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/generic_styles.css') }}">
-        <link rel="shortcut icon" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
-        <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
-        <link rel="icon" sizes="192x192" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
-        <title> About Us </title>
-    </head>
-    <body>
-        <header>
-            <img src="{{ url_for('static', filename='images/UpliftHeader.png') }}" class="logo">
-        </header>
-        <nav class="sitenavigation">
-            <p><a href="/">Home</a></p>
-            <p><a href="/contact_us">Contact Us</a></p>
-        </nav>
-        <main class="content">
-            <div class="row">
-                <div class="column">
-                    <div class="card">
-                        <div class="container">
-                            <h2>Jaadyyah Shearrion</h2>
-                            <p class="title"> Social Media Manager and Front End Developer</p>
-                        </div>
-                    </div>
-                </div>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
+<link rel="icon" sizes="192x192" href="{{ url_for('static', filename='images/UpliftFavIcon.png') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>About Us — Uplift</title>
+<style>
+  :root {
+    --black: #050810;
+    --deep: #090d1a;
+    --blue-dark: #0a1628;
+    --blue-mid: #0f3460;
+    --blue: #1565c0;
+    --blue-bright: #2979ff;
+    --blue-glow: #4fc3f7;
+    --white: #f0f4ff;
+    --muted: #8899bb;
+    --border: rgba(41, 121, 255, 0.18);
+    --glow: 0 0 40px rgba(41, 121, 255, 0.25);
+  }
 
-                <div class="column">
-                    <div class="card">
-                        <div class="container">
-                            <h2>Jay Flores</h2>
-                            <p class="title"> Web Design</p>                         
-                        </div>
-                    </div>
-                </div>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-                <div class="column">
-                    <div class="card">
-                        <div class="container">
-                            <h2>Marc Louise Eng</h2>
-                            <p class="title"> Front and Back End Developer</p>
-                        </div>
-                    </div>
-                </div>
+  html { scroll-behavior: smooth; }
 
-                <div class="column">
-                    <div class="card">
-                        <div class="container">
-                            <h2>Ryan Smaller</h2>
-                            <p class="title"> Front and Back End Developer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <p>  </p>
-        </footer>
-    </body>
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Grid bg */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(41,121,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(41,121,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Noise */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(5, 8, 16, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    animation: slideDown 0.8s ease both;
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+  }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--white) 0%, var(--blue-glow) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+  }
+
+  nav {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  nav a {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 1px;
+    background: var(--blue-bright);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  nav a:hover { color: var(--white); }
+  nav a:hover::after { transform: scaleX(1); }
+
+  /* ── MAIN ── */
+  main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    padding: 10rem 4rem 6rem;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    margin-bottom: 5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .page-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--blue-bright);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px; height: 1px;
+    background: var(--blue-bright);
+  }
+
+  .page-header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 600px;
+  }
+
+  .page-header p {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 480px;
+    margin-top: 1rem;
+  }
+
+  /* ── TEAM GRID ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--deep);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: background 0.4s;
+    opacity: 0;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.4s; }
+  .card:nth-child(2) { animation-delay: 0.55s; }
+  .card:nth-child(3) { animation-delay: 0.7s; }
+  .card:nth-child(4) { animation-delay: 0.85s; }
+
+  /* Top accent line */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue) 0%, var(--blue-glow) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  /* Glow orb on hover */
+  .card::after {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(41,121,255,0.12) 0%, transparent 70%);
+    bottom: -60px; right: -60px;
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+
+  .card:hover { background: var(--blue-dark); }
+  .card:hover::before { transform: scaleX(1); }
+  .card:hover::after { opacity: 1; }
+
+  /* Number index */
+  .card-index {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--blue-bright);
+    opacity: 0.5;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Avatar placeholder */
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--blue-bright);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card:hover .avatar {
+    border-color: var(--blue-bright);
+    box-shadow: var(--glow);
+  }
+
+  .card h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card .role {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Divider line */
+  .card-divider {
+    width: 24px;
+    height: 1px;
+    background: var(--border);
+    margin: 1.2rem 0;
+    transition: width 0.3s, background 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card:hover .card-divider {
+    width: 40px;
+    background: var(--blue-bright);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 1.8rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 1.2rem 1.5rem; }
+    main { padding: 8rem 1.5rem 4rem; }
+    .team-grid { grid-template-columns: 1fr; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="/" class="logo-text">Uplift</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/contact_us">Contact Us</a>
+  </nav>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <div class="page-header">
+    <p class="page-label">The Team</p>
+    <h1>The people behind Uplift</h1>
+    <p>A small, focused team dedicated to building digital infrastructure that empowers small businesses to grow.</p>
+  </div>
+
+  <div class="team-grid">
+
+    <div class="card">
+      <div class="card-index">01</div>
+      <div class="avatar">JS</div>
+      <h2>Jaadyyah Shearrion</h2>
+      <div class="card-divider"></div>
+      <p class="role">Social Media Manager<br>& Front End Developer</p>
+    </div>
+
+    <div class="card">
+      <div class="card-index">02</div>
+      <div class="avatar">JF</div>
+      <h2>Jay Flores</h2>
+      <div class="card-divider"></div>
+      <p class="role">Web Design</p>
+    </div>
+
+    <div class="card">
+      <div class="card-index">03</div>
+      <div class="avatar">ME</div>
+      <h2>Marc Louise Eng</h2>
+      <div class="card-divider"></div>
+      <p class="role">Front & Back End Developer</p>
+    </div>
+
+    <div class="card">
+      <div class="card-index">04</div>
+      <div class="avatar">RS</div>
+      <h2>Ryan Smaller</h2>
+      <div class="card-divider"></div>
+      <p class="role">Front & Back End Developer</p>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Uplift</div>
+  <p class="footer-copy">© 2025 Uplift. All rights reserved.</p>
+</footer>
+
+<script>
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.style.boxShadow = window.scrollY > 10
+      ? '0 4px 30px rgba(0,0,0,0.5)'
+      : 'none';
+  });
+</script>
+</body>
 </html>
