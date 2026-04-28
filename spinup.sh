@@ -1,3 +1,4 @@
+git pull
 if [ -f "/tmp/gunicorn.pid" ]; then
     PID=$(cat /tmp/gunicorn.pid)
     kill -TERM $PID
