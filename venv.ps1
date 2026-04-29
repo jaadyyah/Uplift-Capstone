@@ -28,7 +28,7 @@ if (Test-Path $REQUIREMENTS) {
     pip install -r $REQUIREMENTS
     Write-Host "Installed dependencies from $REQUIREMENTS"
 } else {
-    Write-Host "No $REQUIREMENTS found — skipping package install"
+    Write-Host "No $REQUIREMENTS found - skipping package install"
 }
 
 Write-Host ""
