@@ -16,8 +16,8 @@ def send_email(user_email, subject, body):
                 "Subject": {"Data": subject},
                 "Body": {"Text": {"Data": body}}
             }
-            print(f"Sent email successfully: {email_to_send.email}")
         )
+        print(f"Sent email successfully: {email_to_send.email}")
         return True
     except botocore.exceptions.BotoCoreError as err:
         print("Attempted to send email and failed:", err)
