@@ -10,7 +10,7 @@ def send_email(user_email, subject, body):
         return False
     try:
         ses.send_email(
-            Source="mail@upliftcompanyusa.com",
+            Source="Uplift Company <mail@upliftcompanyusa.com>",
             Destination={"ToAddresses": [email_to_send.email]},
             Message={
                 "Subject": {"Data": subject},
