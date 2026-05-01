@@ -50,3 +50,61 @@ nav a.nav-active::after {
 nav a.nav-active:hover {
   -webkit-text-fill-color: var(--white);
 }
+
+.language-selector {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  z-index: 2;
+}
+
+.select-label {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--deep);
+  color: var(--white);
+  border: 1px solid var(--border);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+  -webkit-text-fill-color: var(--white);
+}
+
+.custom-select:hover .select-label {
+  border-color: var(--blue-bright);
+  background: var(--blue-dark);
+  box-shadow: 0 0 12px rgba(41, 121, 255, 0.2);
+}
+
+.lang-select:focus + .select-label {
+  outline: none;
+  border-color: var(--blue-bright);
+  box-shadow: 0 0 16px rgba(41, 121, 255, 0.35);
+  background: var(--blue-dark);
+}

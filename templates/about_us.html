@@ -29,9 +29,18 @@
   </svg>
       Uplift
   </a>
+  <form action="/about_us" method="get" class="language-selector">
+    <div class="custom-select">
+      <select name="lang" onchange="this.form.submit()" class="lang-select">
+        <option value="en"{% if request.args.get("lang") == "en" %}selected{% endif %}>English</option>
+        <option value="es"{% if request.args.get("lang") == "es" %}selected{% endif %}>Español</option>
+      </select>
+      <span class="select-label">{{ get_current_lang() }}</span>
+    </div>
+  </form>
   <nav>
     <a href="/">Home</a>
-    <a href="/about_us">About Us</a>
+    <a href="/about_us">{{ _("About Us") }}</a>
     <a href="/contact_us">Contact Us</a>
   </nav>
 </header>

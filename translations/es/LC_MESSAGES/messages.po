@@ -1,0 +1,186 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-05-01 17:18-0400\n"
+"PO-Revision-Date: 2026-05-01 17:18-0400\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: templates/about_us.html:43 templates/contact_us.html:44
+#: templates/index.html:43
+msgid "About Us"
+msgstr "Sobre Nosotros"
+
+#: templates/index.html:42
+msgid "Home"
+msgstr ""
+
+#: templates/index.html:44
+msgid "Contact Us"
+msgstr ""
+
+#: templates/index.html:54
+msgid "Digital Infrastructure for Small Business"
+msgstr ""
+
+#: templates/index.html:57
+msgid "Empowering Small"
+msgstr ""
+
+#: templates/index.html:58
+msgid "Businesses Through"
+msgstr ""
+
+#: templates/index.html:59
+msgid "Technology"
+msgstr ""
+
+#: templates/index.html:63
+msgid ""
+"We provide essential digital infrastructure for home-based shops and "
+"emerging\n"
+"    small businesses — so you can focus on what you do best."
+msgstr ""
+
+#: templates/index.html:68
+msgid "Get Started"
+msgstr ""
+
+#: templates/index.html:69
+msgid "Our Services"
+msgstr ""
+
+#: templates/index.html:74
+msgid "Scroll to explore"
+msgstr ""
+
+#: templates/index.html:81
+#, python-format
+msgid "100%%"
+msgstr ""
+
+#: templates/index.html:82
+msgid "Client Retention"
+msgstr ""
+
+#: templates/index.html:85
+msgid "2x"
+msgstr ""
+
+#: templates/index.html:86
+msgid "Average Revenue Growth"
+msgstr ""
+
+#: templates/index.html:89
+msgid "End-to-End"
+msgstr ""
+
+#: templates/index.html:90
+msgid "Digital Transformation"
+msgstr ""
+
+#: templates/index.html:96
+msgid "What We Do"
+msgstr ""
+
+#: templates/index.html:97
+msgid "Our Core Services"
+msgstr ""
+
+#: templates/index.html:102
+msgid "Marketing & Branding"
+msgstr ""
+
+#: templates/index.html:103
+msgid ""
+"Custom websites, social media management, and graphic design — posters, "
+"flyers, and event materials — tailored to your unique vision and "
+"audience."
+msgstr ""
+
+#: templates/index.html:107
+msgid "Infrastructure & Management"
+msgstr ""
+
+#: templates/index.html:108
+msgid ""
+"End-to-end support for payments, inventory, and shipping labels, powered "
+"by reliable platforms like BigCartel so every transaction runs "
+"flawlessly."
+msgstr ""
+
+#: templates/index.html:112 templates/index.html:142
+msgid "Digital Identity"
+msgstr ""
+
+#: templates/index.html:113
+msgid ""
+"Boutique-style storefronts and cohesive social media presences that "
+"reflect the quality and character of your brand at every touchpoint."
+msgstr ""
+
+#: templates/index.html:123
+msgid "Success Story"
+msgstr ""
+
+#: templates/index.html:126
+msgid ""
+"A home-based fragrance boutique transformed from manual, trust-based "
+"transactions "
+msgstr ""
+
+#: templates/index.html:127
+msgid "into a fully automated, professional storefront — all through a strategic "
+msgstr ""
+
+#: templates/index.html:128
+msgid "dual-phase infrastructure overhaul."
+msgstr ""
+
+#: templates/index.html:131
+msgid "View LittleOneShop's Website"
+msgstr ""
+
+#: templates/index.html:137
+msgid "The Challenge"
+msgstr ""
+
+#: templates/index.html:138
+msgid ""
+"Founded in 2020, LittleOneShop relied on verbal commitments and word-of-"
+"mouth marketing, resulting in inventory overhead, unfulfilled orders, and"
+" missed revenue opportunities."
+msgstr ""
+
+#: templates/index.html:144
+msgid "Boutique-style storefront reflecting the luxury nature of the products"
+msgstr ""
+
+#: templates/index.html:145
+msgid "Cohesive social media presence built to convert browsers to buyers"
+msgstr ""
+
+#: templates/index.html:150
+msgid "Operational Streamlining"
+msgstr ""
+
+#: templates/index.html:152
+msgid "BigCartel & PayPal integrated for automated payments"
+msgstr ""
+
+#: templates/index.html:153
+msgid "Shipping label generation removing manual logistics burden"
+msgstr ""
+

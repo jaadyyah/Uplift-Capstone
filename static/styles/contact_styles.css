@@ -60,7 +60,7 @@ header {
 	z-index: 100;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	gap: 2rem;  /* Add this */
 	padding: 1.2rem 4rem;
 	background: rgba(5, 8, 16, 0.85);
 	backdrop-filter: blur(20px);
@@ -102,6 +102,10 @@ main {
 	min-height: 100vh;
 	padding-top: 72px; /* header height */
 	overflow: visible;
+}
+
+nav {
+	margin-left: auto;
 }
 
 /* ── LEFT PANEL ── */

@@ -1,12 +1,48 @@
-import os, sqlite3, json, requests, uplift_dbutil, uplift_emailutil, botocore
+import os, sqlite3, json, requests, uplift_dbutil, uplift_emailutil, botocore, dotenv
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
+
+from flask_babel import *
 
 app = Flask(__name__)
+app.config["BABEL_DEFAULT_LOCALE"] = "en" # Initialize Babel and related configs.
+app.config["BABEL_SUPPORTED_LOCALES"] = ["en", "es"]
+dotenv.load_dotenv()
+app.secret_key=os.environ.get("SESSION_KEY")
+
+def flask_accessible(func): # decorator to use to expose a function.
+    @app.context_processor
+    def internal_injection():
+        return {func.__name__:func}
+    return func
+
+@flask_accessible
+def get_locale():
+    lang = session.get("lang") 
+    if lang:
+        return lang
+    return app.config["BABEL_DEFAULT_LOCALE"]
+
+@flask_accessible
+def get_current_lang():
+    if session.get("lang") == "es":
+        return "español"
+    else:
+        return "english"
+
+babel = Babel(app, locale_selector=get_locale)
 
 uplift_dbutil.init_db()
 
 app.teardown_appcontext(uplift_dbutil.close_db)
+
+@app.route("/change_language", methods=["POST"])
+def set_language():
+    lang = request.form.get("lang", "en")
+    print(lang)
+    if lang in app.config["BABEL_SUPPORTED_LOCALES"]:
+        session["lang"] = lang
+    return redirect(request.referrer or "/")
 
 # @app.route(path) sets up a URL path that HTML can use for links/redirects within our site.
 @app.route("/") # The path "/" in HTML code redirects to index.html, but the URL will show "/"

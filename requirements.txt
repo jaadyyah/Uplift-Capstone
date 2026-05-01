@@ -3,3 +3,5 @@ botocore
 requests
 flask
 email_validator
+flask_babel
+python-dotenv
