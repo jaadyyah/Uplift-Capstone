@@ -19,3 +19,5 @@ if pathlib.Path(REQUIREMENTS).is_file(): # Install dependencies if requirements 
 else:
     print("No " + REQUIREMENTS + " found — skipping package install")
 print()
+
+print("Please run the command: \nsource " +VENV_DIR + "/bin/activate")
