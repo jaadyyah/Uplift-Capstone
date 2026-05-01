@@ -8,8 +8,8 @@ VENV_DIR="./.venv"
 REQUIREMENTS="./requirements.txt"
 print("Setting up virtual environment...")
 if not pathlib.Path(VENV_DIR).is_dir(): # Create venv if it doesn't exist
-    os.system(PYTHON + " -m venv \"$VENV_DIR\")")
-    print("Created venv at $VENV_DIR")
+    os.system(PYTHON + " -m venv " + VENV_DIR)
+    print("Created venv at " + VENV_DIR)
 else:
     print("Using existing venv at " + VENV_DIR)
 os.system("source " + VENV_DIR + "/bin/activate")
