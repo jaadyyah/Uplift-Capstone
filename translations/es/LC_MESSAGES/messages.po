@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-05-01 20:00-0400\n"
+"POT-Creation-Date: 2026-05-01 20:31-0400\n"
 "PO-Revision-Date: 2026-05-01 18:23-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -18,30 +18,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: templates/about_us.html:13 templates/about_us.html:43
-#: templates/contact_us.html:44 templates/index.html:43
+#: templates/about_us.html:13 templates/about_us.html:49
+#: templates/contact_us.html:50 templates/index.html:49
 msgid "About Us"
 msgstr "Sobre Nosotros"
 
-#: templates/about_us.html:42 templates/contact_us.html:43
-#: templates/index.html:42
+#: templates/about_us.html:48 templates/contact_us.html:49
+#: templates/index.html:48
 msgid "Home"
 msgstr "Inicio"
 
-#: templates/about_us.html:44 templates/contact_us.html:13
-#: templates/contact_us.html:45 templates/index.html:44
+#: templates/about_us.html:50 templates/contact_us.html:13
+#: templates/contact_us.html:51 templates/index.html:50
 msgid "Contact Us"
 msgstr "Contáctenos"
 
-#: templates/about_us.html:50
+#: templates/about_us.html:56
 msgid "The Team"
 msgstr "El equipo"
 
-#: templates/about_us.html:51
+#: templates/about_us.html:57
 msgid "The people behind Uplift"
 msgstr "Las personas detrás de Uplift"
 
-#: templates/about_us.html:52
+#: templates/about_us.html:58
 msgid ""
 "A small, focused team dedicated to building digital infrastructure that "
 "empowers small businesses to grow."
@@ -49,129 +49,129 @@ msgstr ""
 "Un equipo pequeño y enfocado en construir infraestructura digital que "
 "impulsa el crecimiento de las pequeñas empresas."
 
-#: templates/about_us.html:60
+#: templates/about_us.html:66
 msgid "Social Media Manager"
 msgstr "Gestor de redes sociales"
 
-#: templates/about_us.html:60
+#: templates/about_us.html:66
 msgid "& Front-End Developer"
 msgstr "y desarrollador Front-End"
 
-#: templates/about_us.html:67
+#: templates/about_us.html:73
 msgid "Web Designer"
 msgstr "Diseñador web"
 
-#: templates/about_us.html:74 templates/about_us.html:81
+#: templates/about_us.html:80 templates/about_us.html:87
 msgid "Front-End & Back-End Developer"
 msgstr "Desarrollador Front-End y Back-End"
 
-#: templates/contact_us.html:56
+#: templates/contact_us.html:62
 msgid "Reach Out"
 msgstr "Póngase en contacto con nosotros"
 
-#: templates/contact_us.html:58
+#: templates/contact_us.html:64
 msgid "Let's build"
 msgstr "Vamos a crear"
 
-#: templates/contact_us.html:58
+#: templates/contact_us.html:64
 msgid "something"
 msgstr "algo"
 
-#: templates/contact_us.html:58
+#: templates/contact_us.html:64
 msgid "together"
 msgstr "juntos"
 
-#: templates/contact_us.html:61
+#: templates/contact_us.html:67
 msgid "Ready to take your business digital? Tell us about your goals and we'll "
 msgstr ""
 "¿Lista para llevar su negocio al mundo digital? Cuéntenos sus objetivos y"
 " vamos a"
 
-#: templates/contact_us.html:62
+#: templates/contact_us.html:68
 msgid "craft a solution that fits your vision and budget."
-msgstr "crear una solución que se ajuste a su visión y presupuesto"
+msgstr "crear una solución que se ajuste a su visión y presupuesto."
 
-#: templates/contact_us.html:69
+#: templates/contact_us.html:75
 msgid "Email"
 msgstr "Correo electrónico"
 
-#: templates/contact_us.html:76
+#: templates/contact_us.html:82
 msgid "Response Time"
 msgstr "Tiempo de respuesta"
 
-#: templates/contact_us.html:77
+#: templates/contact_us.html:83
 msgid "Within 24 hours"
 msgstr "En 24 horas"
 
-#: templates/contact_us.html:83
+#: templates/contact_us.html:89
 msgid "Services"
 msgstr "Servicios"
 
-#: templates/contact_us.html:84
+#: templates/contact_us.html:90
 msgid "Branding"
 msgstr "Branding"
 
-#: templates/contact_us.html:84
+#: templates/contact_us.html:90
 msgid "Web"
 msgstr "Web"
 
-#: templates/contact_us.html:84
+#: templates/contact_us.html:90
 msgid "Infrastructure"
 msgstr "Infraestructura"
 
-#: templates/contact_us.html:92
+#: templates/contact_us.html:98
 msgid "Send a Message"
 msgstr "Enviar un mensaje"
 
-#: templates/contact_us.html:98
+#: templates/contact_us.html:104
 msgid "Full Name"
 msgstr "Nombre completo"
 
-#: templates/contact_us.html:104
+#: templates/contact_us.html:110
 msgid "Jane Doe"
 msgstr "Juana Peréz"
 
-#: templates/contact_us.html:112
+#: templates/contact_us.html:118
 msgid "Phone Number"
 msgstr "Número de teléfono"
 
-#: templates/contact_us.html:126
+#: templates/contact_us.html:132
 msgid "Email Address"
 msgstr "Correo Electrónico"
 
-#: templates/contact_us.html:132
+#: templates/contact_us.html:138
 msgid "you@email.com"
 msgstr "usted@correo.com"
 
-#: templates/contact_us.html:140
+#: templates/contact_us.html:146
 msgid "Your Message"
 msgstr "Su mensaje"
 
-#: templates/contact_us.html:146
+#: templates/contact_us.html:152
 msgid "Tell us about your business and what you're looking for..."
 msgstr "Cuéntenos sobre su negocio y lo que busca..."
 
-#: templates/contact_us.html:154
+#: templates/contact_us.html:160
 msgid "Send Message"
 msgstr "Enviar mensaje"
 
-#: templates/index.html:54
+#: templates/index.html:60
 msgid "Digital Infrastructure for Small Businesses"
 msgstr "Infraestructura digital para pequeños negocios"
 
-#: templates/index.html:57
+#: templates/index.html:63
 msgid "Empowering Small"
 msgstr "Impulsando a los pequeños"
 
-#: templates/index.html:58
+#: templates/index.html:64
 msgid "Businesses Through"
 msgstr "negocios a través de"
 
-#: templates/index.html:59
+#: templates/index.html:65
 msgid "Technology"
 msgstr "la tecnología"
 
-#: templates/index.html:63
+#: templates/index.html:69
 msgid ""
 "We provide essential digital infrastructure for home-based shops and "
 "emerging"
@@ -179,62 +179,62 @@ msgstr ""
 "Proporcionamos infraestructura digital esencial para negocios desde casa "
 "y "
 
-#: templates/index.html:64
+#: templates/index.html:70
 msgid "small businesses — so you can focus on what you do best."
 msgstr ""
 "pequeños negocios emergentes — para que pueda centrarse en lo que mejor "
 "hace."
 
-#: templates/index.html:68
+#: templates/index.html:74
 msgid "Get Started"
 msgstr "Empezar"
 
-#: templates/index.html:69
+#: templates/index.html:75
 msgid "Our Services"
 msgstr "Nuestros servicios"
 
-#: templates/index.html:74
+#: templates/index.html:80
 msgid "Scroll to explore"
 msgstr "Desplazar para explorar"
 
-#: templates/index.html:81
+#: templates/index.html:87
 #, python-format
 msgid "100%%"
 msgstr "100%%"
 
-#: templates/index.html:82
+#: templates/index.html:88
 msgid "Client Retention"
 msgstr "Retención de clientes"
 
-#: templates/index.html:85
+#: templates/index.html:91
 msgid "2x"
 msgstr "2x"
 
-#: templates/index.html:86
+#: templates/index.html:92
 msgid "Average Revenue Growth"
 msgstr "Crecimiento promedio de los ingresos"
 
-#: templates/index.html:89
+#: templates/index.html:95
 msgid "End-to-End"
 msgstr "De extremo a extremo"
 
-#: templates/index.html:90
+#: templates/index.html:96
 msgid "Digital Transformation"
 msgstr "Transformación digital"
 
-#: templates/index.html:96
+#: templates/index.html:102
 msgid "What We Do"
 msgstr "Lo que hacemos"
 
-#: templates/index.html:97
+#: templates/index.html:103
 msgid "Our Core Services"
 msgstr "Nuestros servicios más importantes"
 
-#: templates/index.html:102
+#: templates/index.html:108
 msgid "Marketing & Branding"
 msgstr "Marketing y branding"
 
-#: templates/index.html:103
+#: templates/index.html:109
 msgid ""
 "Custom websites, social media management, and graphic design — posters, "
 "flyers, and event materials — tailored to your unique vision and "
@@ -244,11 +244,11 @@ msgstr ""
 "pósters,folletos y materiales para eventos — adaptados a su visión y "
 "audiencia únicas."
 
-#: templates/index.html:107
+#: templates/index.html:113
 msgid "Infrastructure & Management"
 msgstr "Infraestructura y gestión"
 
-#: templates/index.html:108
+#: templates/index.html:114
 msgid ""
 "End-to-end support for payments, inventory, and shipping labels, powered "
 "by reliable platforms like BigCartel so every transaction runs "
@@ -258,11 +258,11 @@ msgstr ""
 "por plataformas fiables como BigCartel, para que cada transacción "
 "funcione a la perfección."
 
-#: templates/index.html:112 templates/index.html:142
+#: templates/index.html:118 templates/index.html:148
 msgid "Digital Identity"
 msgstr "Identidad digital"
 
-#: templates/index.html:113
+#: templates/index.html:119
 msgid ""
 "Boutique-style storefronts and cohesive social media presences that "
 "reflect the quality and character of your brand at every touchpoint."
@@ -271,11 +271,11 @@ msgstr ""
 "sociales que reflejan la calidad y el carácter de su marca en cada punto "
 "de contacto."
 
-#: templates/index.html:123
+#: templates/index.html:129
 msgid "Success Story"
 msgstr "Caso de éxito"
 
-#: templates/index.html:126
+#: templates/index.html:132
 msgid ""
 "A home-based fragrance boutique transformed from manual, trust-based "
 "transactions "
@@ -283,25 +283,25 @@ msgstr ""
 "Una boutique de fragancias desde casa, transformada de transacciones "
 "manuales basadas en la confianza "
 
-#: templates/index.html:127
+#: templates/index.html:133
 msgid "into a fully automated, professional storefront — all through a strategic "
 msgstr ""
 "en una tienda online totalmente automatizada y profesional — todo ello "
 "mediante una estrategia "
 
-#: templates/index.html:128
+#: templates/index.html:134
 msgid "dual-phase infrastructure overhaul."
 msgstr "de reestructuración de infraestructura en dos fases."
 
-#: templates/index.html:131
+#: templates/index.html:137
 msgid "View LittleOneShop's Website"
 msgstr "Ver el sitio web de LittleOneShop"
 
-#: templates/index.html:137
+#: templates/index.html:143
 msgid "The Challenge"
 msgstr "El desafío"
 
-#: templates/index.html:138
+#: templates/index.html:144
 msgid ""
 "Founded in 2020, LittleOneShop relied on verbal commitments and word-of-"
 "mouth marketing, resulting in inventory overhead, unfulfilled orders, and"
@@ -311,27 +311,27 @@ msgstr ""
 "marketing de boca en boca, lo que resultaba en sobrecostes de inventario,"
 " pedidos sin cumplir y oportunidades de ingresos perdidas."
 
-#: templates/index.html:144
+#: templates/index.html:150
 msgid "Boutique-style storefront reflecting the luxury nature of the products"
 msgstr ""
 "Una tienda online de estilo boutique que refleja la naturaleza lujosa de "
 "los productos"
 
-#: templates/index.html:145
+#: templates/index.html:151
 msgid "Cohesive social media presence built to convert browsers to buyers"
 msgstr ""
 "Una presencia coherente en redes sociales creada para convertir "
 "visitantes en compradores"
 
-#: templates/index.html:150
+#: templates/index.html:156
 msgid "Operational Streamlining"
 msgstr "Optimización operativa"
 
-#: templates/index.html:152
+#: templates/index.html:158
 msgid "BigCartel & PayPal integrated for automated payments"
 msgstr "BigCartel y PayPal están integrados para pagos automatizados"
 
-#: templates/index.html:153
+#: templates/index.html:159
 msgid "Shipping label generation removing manual logistics burden"
 msgstr ""
 "Generación de etiquetas de envío que elimina la carga operativa de la "
