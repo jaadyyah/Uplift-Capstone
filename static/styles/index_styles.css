@@ -56,13 +56,24 @@ header {
 	z-index: 100;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	gap: 2rem;
 	padding: 1.2rem 4rem;
 	background: rgba(5, 8, 16, 0.85);
 	backdrop-filter: blur(20px);
 	border-bottom: 1px solid var(--border);
 	animation: slideDown 0.8s ease both;
 }
+
+.logo-text {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+nav {
+	margin-left: auto;
+}
+
 
 @keyframes slideDown {
 	from { transform: translateY(-100%); opacity: 0; }
