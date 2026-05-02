@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-05-01 17:18-0400\n"
-"PO-Revision-Date: 2026-05-01 17:18-0400\n"
+"POT-Creation-Date: 2026-05-01 20:00-0400\n"
+"PO-Revision-Date: 2026-05-01 18:23-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
 "Language-Team: es <LL@li.org>\n"
@@ -18,90 +18,221 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: templates/about_us.html:43 templates/contact_us.html:44
-#: templates/index.html:43
+#: templates/about_us.html:13 templates/about_us.html:43
+#: templates/contact_us.html:44 templates/index.html:43
 msgid "About Us"
 msgstr "Sobre Nosotros"
 
+#: templates/about_us.html:42 templates/contact_us.html:43
 #: templates/index.html:42
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
-#: templates/index.html:44
+#: templates/about_us.html:44 templates/contact_us.html:13
+#: templates/contact_us.html:45 templates/index.html:44
 msgid "Contact Us"
+msgstr "Contáctenos"
+
+#: templates/about_us.html:50
+msgid "The Team"
+msgstr "El equipo"
+
+#: templates/about_us.html:51
+msgid "The people behind Uplift"
+msgstr "Las personas detrás de Uplift"
+
+#: templates/about_us.html:52
+msgid ""
+"A small, focused team dedicated to building digital infrastructure that "
+"empowers small businesses to grow."
 msgstr ""
+"Un equipo pequeño y enfocado en construir infraestructura digital que "
+"impulsa el crecimiento de las pequeñas empresas."
+
+#: templates/about_us.html:60
+msgid "Social Media Manager"
+msgstr "Gestor de redes sociales"
+
+#: templates/about_us.html:60
+msgid "& Front-End Developer"
+msgstr "y desarrollador Front-End"
+
+#: templates/about_us.html:67
+msgid "Web Designer"
+msgstr "Diseñador web"
+
+#: templates/about_us.html:74 templates/about_us.html:81
+msgid "Front-End & Back-End Developer"
+msgstr "Desarrollador Front-End y Back-End"
+
+#: templates/contact_us.html:56
+msgid "Reach Out"
+msgstr "Póngase en contacto con nosotros"
+
+#: templates/contact_us.html:58
+msgid "Let's build"
+msgstr "Vamos a crear"
+
+#: templates/contact_us.html:58
+msgid "something"
+msgstr "algo"
+
+#: templates/contact_us.html:58
+msgid "together"
+msgstr "juntos"
+
+#: templates/contact_us.html:61
+msgid "Ready to take your business digital? Tell us about your goals and we'll "
+msgstr ""
+"¿Lista para llevar su negocio al mundo digital? Cuéntenos sus objetivos y"
+" vamos a"
+
+#: templates/contact_us.html:62
+msgid "craft a solution that fits your vision and budget."
+msgstr "crear una solución que se ajuste a su visión y presupuesto"
+
+#: templates/contact_us.html:69
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: templates/contact_us.html:76
+msgid "Response Time"
+msgstr "Tiempo de respuesta"
+
+#: templates/contact_us.html:77
+msgid "Within 24 hours"
+msgstr "En 24 horas"
+
+#: templates/contact_us.html:83
+msgid "Services"
+msgstr "Servicios"
+
+#: templates/contact_us.html:84
+msgid "Branding"
+msgstr "Branding"
+
+#: templates/contact_us.html:84
+msgid "Web"
+msgstr "Web"
+
+#: templates/contact_us.html:84
+msgid "Infrastructure"
+msgstr "Infraestructura"
+
+#: templates/contact_us.html:92
+msgid "Send a Message"
+msgstr "Enviar un mensaje"
+
+#: templates/contact_us.html:98
+msgid "Full Name"
+msgstr "Nombre completo"
+
+#: templates/contact_us.html:104
+msgid "Jane Doe"
+msgstr "Juana Peréz"
+
+#: templates/contact_us.html:112
+msgid "Phone Number"
+msgstr "Número de teléfono"
+
+#: templates/contact_us.html:126
+msgid "Email Address"
+msgstr "Correo Electrónico"
+
+#: templates/contact_us.html:132
+msgid "you@email.com"
+msgstr "usted@correo.com"
+
+#: templates/contact_us.html:140
+msgid "Your Message"
+msgstr "Su mensaje"
+
+#: templates/contact_us.html:146
+msgid "Tell us about your business and what you're looking for..."
+msgstr "Cuéntenos sobre su negocio y lo que busca..."
+
+#: templates/contact_us.html:154
+msgid "Send Message"
+msgstr "Enviar mensaje"
 
 #: templates/index.html:54
-msgid "Digital Infrastructure for Small Business"
-msgstr ""
+msgid "Digital Infrastructure for Small Businesses"
+msgstr "Infraestructura digital para pequeños negocios"
 
 #: templates/index.html:57
 msgid "Empowering Small"
-msgstr ""
+msgstr "Impulsando a los pequeños"
 
 #: templates/index.html:58
 msgid "Businesses Through"
-msgstr ""
+msgstr "negocios a través de"
 
 #: templates/index.html:59
 msgid "Technology"
-msgstr ""
+msgstr "la tecnología"
 
 #: templates/index.html:63
 msgid ""
 "We provide essential digital infrastructure for home-based shops and "
-"emerging\n"
-"    small businesses — so you can focus on what you do best."
+"emerging"
 msgstr ""
+"Proporcionamos infraestructura digital esencial para negocios desde casa "
+"y "
+
+#: templates/index.html:64
+msgid "small businesses — so you can focus on what you do best."
+msgstr ""
+"pequeños negocios emergentes — para que pueda centrarse en lo que mejor "
+"hace."
 
 #: templates/index.html:68
 msgid "Get Started"
-msgstr ""
+msgstr "Empezar"
 
 #: templates/index.html:69
 msgid "Our Services"
-msgstr ""
+msgstr "Nuestros servicios"
 
 #: templates/index.html:74
 msgid "Scroll to explore"
-msgstr ""
+msgstr "Desplazar para explorar"
 
 #: templates/index.html:81
 #, python-format
 msgid "100%%"
-msgstr ""
+msgstr "100%%"
 
 #: templates/index.html:82
 msgid "Client Retention"
-msgstr ""
+msgstr "Retención de clientes"
 
 #: templates/index.html:85
 msgid "2x"
-msgstr ""
+msgstr "2x"
 
 #: templates/index.html:86
 msgid "Average Revenue Growth"
-msgstr ""
+msgstr "Crecimiento promedio de los ingresos"
 
 #: templates/index.html:89
 msgid "End-to-End"
-msgstr ""
+msgstr "De extremo a extremo"
 
 #: templates/index.html:90
 msgid "Digital Transformation"
-msgstr ""
+msgstr "Transformación digital"
 
 #: templates/index.html:96
 msgid "What We Do"
-msgstr ""
+msgstr "Lo que hacemos"
 
 #: templates/index.html:97
 msgid "Our Core Services"
-msgstr ""
+msgstr "Nuestros servicios más importantes"
 
 #: templates/index.html:102
 msgid "Marketing & Branding"
-msgstr ""
+msgstr "Marketing y branding"
 
 #: templates/index.html:103
 msgid ""
@@ -109,10 +240,13 @@ msgid ""
 "flyers, and event materials — tailored to your unique vision and "
 "audience."
 msgstr ""
+"Sitios web personalizados, gestión de redes sociales y diseño gráfico — "
+"pósters,folletos y materiales para eventos — adaptados a su visión y "
+"audiencia únicas."
 
 #: templates/index.html:107
 msgid "Infrastructure & Management"
-msgstr ""
+msgstr "Infraestructura y gestión"
 
 #: templates/index.html:108
 msgid ""
@@ -120,42 +254,52 @@ msgid ""
 "by reliable platforms like BigCartel so every transaction runs "
 "flawlessly."
 msgstr ""
+"Soporte integral para pagos, inventario y etiquetas de envío, impulsado "
+"por plataformas fiables como BigCartel, para que cada transacción "
+"funcione a la perfección."
 
 #: templates/index.html:112 templates/index.html:142
 msgid "Digital Identity"
-msgstr ""
+msgstr "Identidad digital"
 
 #: templates/index.html:113
 msgid ""
 "Boutique-style storefronts and cohesive social media presences that "
 "reflect the quality and character of your brand at every touchpoint."
 msgstr ""
+"Tiendas online de estilo boutique y una presencia coherente en redes "
+"sociales que reflejan la calidad y el carácter de su marca en cada punto "
+"de contacto."
 
 #: templates/index.html:123
 msgid "Success Story"
-msgstr ""
+msgstr "Caso de éxito"
 
 #: templates/index.html:126
 msgid ""
 "A home-based fragrance boutique transformed from manual, trust-based "
 "transactions "
 msgstr ""
+"Una boutique de fragancias desde casa, transformada de transacciones "
+"manuales basadas en la confianza "
 
 #: templates/index.html:127
 msgid "into a fully automated, professional storefront — all through a strategic "
 msgstr ""
+"en una tienda online totalmente automatizada y profesional — todo ello "
+"mediante una estrategia "
 
 #: templates/index.html:128
 msgid "dual-phase infrastructure overhaul."
-msgstr ""
+msgstr "de reestructuración de infraestructura en dos fases."
 
 #: templates/index.html:131
 msgid "View LittleOneShop's Website"
-msgstr ""
+msgstr "Ver el sitio web de LittleOneShop"
 
 #: templates/index.html:137
 msgid "The Challenge"
-msgstr ""
+msgstr "El desafío"
 
 #: templates/index.html:138
 msgid ""
@@ -163,24 +307,33 @@ msgid ""
 "mouth marketing, resulting in inventory overhead, unfulfilled orders, and"
 " missed revenue opportunities."
 msgstr ""
+"Fundada en 2020, LittleOneShop dependía de compromisos verbales y del "
+"marketing de boca en boca, lo que resultaba en sobrecostes de inventario,"
+" pedidos sin cumplir y oportunidades de ingresos perdidas."
 
 #: templates/index.html:144
 msgid "Boutique-style storefront reflecting the luxury nature of the products"
 msgstr ""
+"Una tienda online de estilo boutique que refleja la naturaleza lujosa de "
+"los productos"
 
 #: templates/index.html:145
 msgid "Cohesive social media presence built to convert browsers to buyers"
 msgstr ""
+"Una presencia coherente en redes sociales creada para convertir "
+"visitantes en compradores"
 
 #: templates/index.html:150
 msgid "Operational Streamlining"
-msgstr ""
+msgstr "Optimización operativa"
 
 #: templates/index.html:152
 msgid "BigCartel & PayPal integrated for automated payments"
-msgstr ""
+msgstr "BigCartel y PayPal están integrados para pagos automatizados"
 
 #: templates/index.html:153
 msgid "Shipping label generation removing manual logistics burden"
 msgstr ""
+"Generación de etiquetas de envío que elimina la carga operativa de la "
+"logística manual"
 

@@ -12,12 +12,12 @@ if not pathlib.Path(VENV_DIR).is_dir(): # Create venv if it doesn't exist
     print("Created venv at " + VENV_DIR)
 else:
     print("Using existing venv at " + VENV_DIR)
-os.system(PYTHON + " -m pip install --upgrade pip --quiet")
 if pathlib.Path(REQUIREMENTS).is_file(): # Install dependencies if requirements file exists
+    os.system(PYTHON + " -m pip install --upgrade pip --quiet")
     os.system(PYTHON + " -m pip install -r " + REQUIREMENTS)
     print("Installed dependencies from " + REQUIREMENTS)
 else:
     print("No " + REQUIREMENTS + " found — skipping package install")
 print()
 
-print("Please run the command: \nsource " +VENV_DIR + "/bin/activate")
+print("Please run the command: \nsource " + VENV_DIR + "/bin/activate")

@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact_styles.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/active_nav_styles.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <title>Contact Us — Uplift</title>
+  <title>{{ _("Contact Us") }} — Uplift</title>
 </head>
 <body>
 
@@ -30,19 +30,19 @@
     </svg>
     Uplift
   </a>
-  <form action="/contact_us" method="get" class="language-selector">
-    <div class="custom-select">
-      <select name="lang" onchange="this.form.submit()" class="lang-select">
-        <option value="en"{% if request.args.get("lang") == "en" %}selected{% endif %}>English</option>
-        <option value="es"{% if request.args.get("lang") == "es" %}selected{% endif %}>Español</option>
-      </select>
-      <span class="select-label">{{ get_current_lang() }}</span>
-    </div>
-  </form>
+  <form action="/change_language" method="post" class="language-selector">
+      <div class="custom-select">
+        <select name="lang" onchange="this.form.submit()" class="lang-select">
+          <option value="en"{% if get_locale() == "en" %}selected{% endif %}>English</option>
+          <option value="es"{% if get_locale() == "es" %}selected{% endif %}>Español</option>
+        </select>
+        <span class="select-label">{{ get_current_lang() }}</span>
+      </div>
+    </form>
   <nav>
-    <a href="/">Home</a>
+    <a href="/">{{ _("Home") }}</a>
     <a href="/about_us">{{ _("About Us") }}</a>
-    <a href="/contact_us">Contact Us</a>
+    <a href="/contact_us">{{ _("Contact Us") }}</a>
   </nav>
 </header>
 
@@ -53,35 +53,35 @@
   <div class="contact-info">
     <div class="orb orb-1"></div>
 
-    <p class="page-label">Reach Out</p>
+    <p class="page-label">{{ _("Reach Out") }}</p>
 
-    <h1>Let's build<br>something <span>together.</span></h1>
+    <h1>{{ _("Let's build") }}<br>{{ _("something") }} <span>{{ _("together") }}.</span></h1>
 
     <p>
-      Ready to take your business digital? Tell us about your goals and we'll 
-      craft a solution that fits your vision and budget.
+      {{ _("Ready to take your business digital? Tell us about your goals and we'll ") }}
+      {{ _("craft a solution that fits your vision and budget.") }}
     </p>
 
     <div class="contact-details">
       <div class="detail-item">
         <div class="detail-icon">✉</div>
         <div class="detail-text">
-          <strong>Email</strong>
+          <strong>{{ _("Email") }}</strong>
           hello@upliftbiz.com
         </div>
       </div>
       <div class="detail-item">
         <div class="detail-icon">◎</div>
         <div class="detail-text">
-          <strong>Response Time</strong>
-          Within 24 hours
+          <strong>{{ _("Response Time") }}</strong>
+          {{ _("Within 24 hours") }}
         </div>
       </div>
       <div class="detail-item">
         <div class="detail-icon">✦</div>
         <div class="detail-text">
-          <strong>Services</strong>
-          Branding · Web · Infrastructure
+          <strong>{{ _("Services") }}</strong>
+          {{ _("Branding") }} · {{ _("Web") }} · {{ _("Infrastructure") }}
         </div>
       </div>
     </div>
@@ -89,19 +89,19 @@
 
   <!-- RIGHT: Form panel -->
   <div class="form-panel">
-    <h2>Send a Message</h2>
+    <h2>{{ _("Send a Message") }}</h2>
 
     <form action="/contact" method="POST">
 
       <div class="field-row">
         <div class="field-group">
-          <label for="name">Full Name</label>
+          <label for="name">{{ _("Full Name") }}</label>
           <div class="input-wrap">
             <input
               type="text"
               id="name"
               name="name"
-              placeholder="Jane Smith"
+              placeholder='{{ _("Jane Doe") }}'
               required
             >
             <span class="input-line"></span>
@@ -109,7 +109,7 @@
         </div>
 
         <div class="field-group">
-          <label for="phone">Phone Number</label>
+          <label for="phone">{{ _("Phone Number") }}</label>
           <div class="input-wrap">
             <input
               type="tel"
@@ -123,13 +123,13 @@
       </div>
 
       <div class="field-group">
-        <label for="email">Email Address</label>
+        <label for="email">{{ _("Email Address") }}</label>
         <div class="input-wrap">
           <input
             type="email"
             id="email"
             name="email"
-            placeholder="you@email.com"
+            placeholder='{{ _("you@email.com") }}'
             required
           >
           <span class="input-line"></span>
@@ -137,13 +137,13 @@
       </div>
 
       <div class="field-group">
-        <label for="comments">Your Message</label>
+        <label for="comments">{{ _("Your Message") }}</label>
         <div class="input-wrap">
           <textarea
             id="comments"
             name="comments"
             rows="5"
-            placeholder="Tell us about your business and what you're looking for..."
+            placeholder="{{ _('Tell us about your business and what you\'re looking for...') }}"
             required
           ></textarea>
           <span class="input-line"></span>
@@ -151,7 +151,7 @@
       </div>
 
       <button type="submit" class="btn-submit">
-        Send Message
+        {{ _("Send Message") }}
         <span class="btn-arrow">→</span>
       </button>
 

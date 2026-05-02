@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import os, platform
+import os, platform, pathlib
 if platform.system() == "Windows":
     python = "python"
 else:
@@ -12,6 +12,8 @@ if answer == "y" or answer == "Y":
     print("Please edit " + str(os.curdir) + "/translations/es/LC_MESSAGES/messages.po and run:\n")
     os.system(python + " -m babel.messages.frontend compile -d translations")
 else:
+    os.system(python + " -m babel.messages.frontend extract -F babel.cfg -o messages.pot .")
+    os.system(python + " -m babel.messages.frontend update -i messages.pot -d translations -l es")
     os.system(python + " -m babel.messages.frontend compile -d translations")
 
 
