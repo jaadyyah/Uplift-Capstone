@@ -216,7 +216,7 @@ msgstr "Crecimiento promedio de los ingresos"
 
 #: templates/index.html:95
 msgid "End-to-End"
-msgstr "De extremo a extremo"
+msgstr "Servicios integrales"
 
 #: templates/index.html:96
 msgid "Digital Transformation"
