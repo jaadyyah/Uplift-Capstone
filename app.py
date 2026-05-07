@@ -44,7 +44,7 @@ def email_form():                               # but the URL will show "/contac
         uplift_dbutil.addToUsers(user_email, fname, lname, phone)
         uplift_dbutil.addToReplies(user_email, body)
         uplift_emailutil.send_email(user_email, "Thanks from Uplift", "Thank you for reaching out to us! Your response has been recorded.")
-        uplift_emailutil.send_email("upliftcompanyusa@gmail.com", f"Name: {fname + ' ' + lname}, Email: {user_email}, Phone Number: {phone}, \n{body}")
+        uplift_emailutil.send_email("upliftcompanyusa@gmail.com", f"User Input From Name: {fname + ' ' + lname}, Email: {user_email}, Phone Number: {phone}", body)
     except Exception as exception:
         print(exception)
         return "There was an error loading the form." # Change this later and add flask route + redirect for error!
