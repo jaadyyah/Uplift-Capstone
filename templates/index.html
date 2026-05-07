@@ -30,21 +30,6 @@
       <polyline points="6,13 16,6  26,13" fill="none" stroke="url(#hg)"  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>Uplift
   </div>
-  <form action="/change_language" method="post" class="language-selector">
-      <div class="custom-select-wrapper">
-        <button class="select-trigger" type="button">
-          <span class="select-label">{{ get_current_lang() }}</span>
-          <svg class="select-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="select-dropdown">
-          <a href="#" class="select-option {% if get_locale() == 'en' %}active{% endif %}" data-value="en" data-lang="en">English</a>
-          <a href="#" class="select-option {% if get_locale() == 'es' %}active{% endif %}" data-value="es" data-lang="es">Español</a>
-        </div>
-      </div>
-      <input type="hidden" name="lang" id="lang-input" value="{{ get_locale() }}">
-    </form>
   <nav>
     <a href="/">{{ _("Home") }}</a>
     <a href="/about_us">{{ _("About Us") }}</a>

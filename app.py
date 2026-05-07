@@ -2,8 +2,6 @@ import os, sqlite3, json, requests, uplift_dbutil, uplift_emailutil, botocore, d
 
 from flask import Flask, render_template, request, redirect, url_for, session
 
-from flask_babel import *
-
 app = Flask(__name__)
 app.config["BABEL_DEFAULT_LOCALE"] = "en" # Initialize Babel and related configs.
 app.config["BABEL_SUPPORTED_LOCALES"] = ["en", "es"]
@@ -30,19 +28,9 @@ def get_current_lang():
     else:
         return "english"
 
-babel = Babel(app, locale_selector=get_locale)
-
 uplift_dbutil.init_db()
 
 app.teardown_appcontext(uplift_dbutil.close_db)
-
-@app.route("/change_language", methods=["POST"])
-def set_language():
-    lang = request.form.get("lang", "en")
-    print(lang)
-    if lang in app.config["BABEL_SUPPORTED_LOCALES"]:
-        session["lang"] = lang
-    return redirect(request.referrer or "/")
 
 # @app.route(path) sets up a URL path that HTML can use for links/redirects within our site.
 @app.route("/") # The path "/" in HTML code redirects to index.html, but the URL will show "/"
@@ -71,6 +59,7 @@ def email_form():                               # but the URL will show "/contac
         uplift_dbutil.addToUsers(user_email, fname, lname, phone)
         uplift_dbutil.addToReplies(user_email, body)
         uplift_emailutil.send_email(user_email, "Thanks from Uplift", "Thank you for reaching out to us! Your response has been recorded.")
+        uplift_emailutil.send_email("upliftcompanyusa@gmail.com", f"Name: {fname + " " + lname}, Email: {user_email}, Phone Number: {phone}, \n{body}")
     except Exception as exception:
         print(exception)
         return "There was an error loading the form." # Change this later and add flask route + redirect for error!
