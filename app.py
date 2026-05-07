@@ -1,32 +1,17 @@
 import os, sqlite3, json, requests, uplift_dbutil, uplift_emailutil, botocore, dotenv
 
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 app.config["BABEL_DEFAULT_LOCALE"] = "en" # Initialize Babel and related configs.
 app.config["BABEL_SUPPORTED_LOCALES"] = ["en", "es"]
 dotenv.load_dotenv()
-app.secret_key=os.environ.get("SESSION_KEY")
 
 def flask_accessible(func): # decorator to use to expose a function.
     @app.context_processor
     def internal_injection():
         return {func.__name__:func}
     return func
-
-@flask_accessible
-def get_locale():
-    lang = session.get("lang") 
-    if lang:
-        return lang
-    return app.config["BABEL_DEFAULT_LOCALE"]
-
-@flask_accessible
-def get_current_lang():
-    if session.get("lang") == "es":
-        return "español"
-    else:
-        return "english"
 
 uplift_dbutil.init_db()
 
@@ -59,7 +44,7 @@ def email_form():                               # but the URL will show "/contac
         uplift_dbutil.addToUsers(user_email, fname, lname, phone)
         uplift_dbutil.addToReplies(user_email, body)
         uplift_emailutil.send_email(user_email, "Thanks from Uplift", "Thank you for reaching out to us! Your response has been recorded.")
-        uplift_emailutil.send_email("upliftcompanyusa@gmail.com", f"Name: {fname + " " + lname}, Email: {user_email}, Phone Number: {phone}, \n{body}")
+        uplift_emailutil.send_email("upliftcompanyusa@gmail.com", f"Name: {fname + ' ' + lname}, Email: {user_email}, Phone Number: {phone}, \n{body}")
     except Exception as exception:
         print(exception)
         return "There was an error loading the form." # Change this later and add flask route + redirect for error!
