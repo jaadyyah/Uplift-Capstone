@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact_styles.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/active_nav_styles.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <title>{{ _("Contact Us") }} — Uplift</title>
+  <title>Contact Us — Uplift</title>
 </head>
 <body>
 
@@ -32,9 +32,9 @@
     Uplift
   </a>
   <nav>
-    <a href="/">{{ _("Home") }}</a>
-    <a href="/about_us">{{ _("About Us") }}</a>
-    <a href="/contact_us">{{ _("Contact Us") }}</a>
+    <a href="/">Home</a>
+    <a href="/about_us">About Us</a>
+    <a href="/contact_us">Contact Us</a>
   </nav>
 </header>
 
@@ -45,35 +45,35 @@
   <div class="contact-info">
     <div class="orb orb-1"></div>
 
-    <p class="page-label">{{ _("Reach Out") }}</p>
+    <p class="page-label">Reach Out</p>
 
-    <h1>{{ _("Let's build") }}<br>{{ _("something") }} <span>{{ _("together") }}.</span></h1>
+    <h1>Let's build") }}<br>{{ _("something") }} <span>{{ _("together.</span></h1>
 
     <p>
-      {{ _("Ready to take your business digital? Tell us about your goals and we'll ") }}
-      {{ _("craft a solution that fits your vision and budget.") }}
+      Ready to take your business digital? Tell us about your goals and we'll 
+      craft a solution that fits your vision and budget.
     </p>
 
     <div class="contact-details">
       <div class="detail-item">
         <div class="detail-icon">✉</div>
         <div class="detail-text">
-          <strong>{{ _("Email") }}</strong>
+          <strong>Email</strong>
           mail@upliftcompanyusa.com
         </div>
       </div>
       <div class="detail-item">
         <div class="detail-icon">◎</div>
         <div class="detail-text">
-          <strong>{{ _("Response Time") }}</strong>
-          {{ _("Within 24 hours") }}
+          <strong>Response Time</strong>
+          Within 24 hours
         </div>
       </div>
       <div class="detail-item">
         <div class="detail-icon">✦</div>
         <div class="detail-text">
-          <strong>{{ _("Services") }}</strong>
-          {{ _("Branding") }} · {{ _("Web") }} · {{ _("Infrastructure") }}
+          <strong>Services</strong>
+          Branding") }} · {{ _("Web") }} · {{ _("Infrastructure
         </div>
       </div>
     </div>
@@ -81,19 +81,19 @@
 
   <!-- RIGHT: Form panel -->
   <div class="form-panel">
-    <h2>{{ _("Send a Message") }}</h2>
+    <h2>Send a Message</h2>
 
     <form action="/contact" method="POST">
 
       <div class="field-row">
         <div class="field-group">
-          <label for="name">{{ _("Full Name") }}</label>
+          <label for="name">Full Name</label>
           <div class="input-wrap">
             <input
               type="text"
               id="name"
               name="name"
-              placeholder='{{ _("Jane Doe") }}'
+              placeholder='Jane Doe'
               required
             >
             <span class="input-line"></span>
@@ -101,7 +101,7 @@
         </div>
 
         <div class="field-group">
-          <label for="phone">{{ _("Phone Number") }}</label>
+          <label for="phone">Phone Number</label>
           <div class="input-wrap">
             <input
               type="tel"
@@ -115,13 +115,13 @@
       </div>
 
       <div class="field-group">
-        <label for="email">{{ _("Email Address") }}</label>
+        <label for="email">Email Address</label>
         <div class="input-wrap">
           <input
             type="email"
             id="email"
             name="email"
-            placeholder='{{ _("you@email.com") }}'
+            placeholder='you@email.com'
             required
           >
           <span class="input-line"></span>
@@ -129,7 +129,7 @@
       </div>
 
       <div class="field-group">
-        <label for="comments">{{ _("Your Message") }}</label>
+        <label for="comments">Your Message</label>
         <div class="input-wrap">
           <textarea
             id="comments"
@@ -143,7 +143,7 @@
       </div>
 
       <button type="submit" class="btn-submit">
-        {{ _("Send Message") }}
+        Send Message
         <span class="btn-arrow">→</span>
       </button>
 
